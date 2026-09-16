@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>简历AI优化工具</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>AI简历优化助手</h1>
+    <form method="post" enctype="multipart/form-data">
+        <div>
+            <label>应聘岗位：</label>
+            <input type="text" name="job" required>
+        </div>
+        <div>
+            <label>上传简历（pdf/docx）：</label>
+            <input type="file" name="resume_file" accept=".pdf,.docx" required>
+        </div>
+        <button type="submit">开始优化</button>
+    </form>
+    {% if result %}
+    <div class="output">
+        <h3>优化结果</h3>
+        <pre>{{result}}</pre>
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>

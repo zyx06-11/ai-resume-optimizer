@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI &#31616;&#21382;&#20248;&#21270;&#21161;&#25163;</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <main class="container">
+    <h1>AI &#31616;&#21382;&#20248;&#21270;&#21161;&#25163;</h1>
+    <form method="post" enctype="multipart/form-data">
+      <label for="job">&#30446;&#26631;&#24212;&#32856;&#32844;&#20301;</label>
+      <input id="job" type="text" name="job" required value="{{ request.form.get('job', '') }}">
+      <label for="resume_file">&#19978;&#20256;&#31616;&#21382; (PDF &#25110; DOCX, &#26368;&#22823; 10 MB)</label>
+      <input id="resume_file" type="file" name="resume_file" accept=".pdf,.docx" required>
+      <button type="submit">&#24320;&#22987;&#20248;&#21270;</button>
+    </form>
+    {% if result %}
+    <section class="output">
+      <h2>&#20248;&#21270;&#32467;&#26524;</h2>
+      <pre>{{ result }}</pre>
+    </section>
+    {% endif %}
+  </main>
+</body>
+</html>
