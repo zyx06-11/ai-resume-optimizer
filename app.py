@@ -49,7 +49,7 @@ def index():
             result = "Please enter a target job title."
         elif not resume_file or not resume_file.filename:
             result = "Please select a resume file."
-        elif not allowed_file(secure_filename(resume_file.filename)):
+        elif not allowed_file(resume_file.filename):
             result = "Only PDF and DOCX files are supported."
         else:
             extension = resume_file.filename.rsplit(".", 1)[1].lower()
